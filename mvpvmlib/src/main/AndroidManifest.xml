@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.reny.mvpvmlib">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

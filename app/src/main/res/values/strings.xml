@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MVPVM-master</string>
+
+
+    <string-array name="tabTitles">
+        <item>图库</item>
+        <item>豆瓣热映</item>
+        <item>休息视频</item>
+        <item>设置</item>
+    </string-array>
+
+
+</resources>
