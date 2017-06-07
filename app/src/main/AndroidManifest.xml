@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.reny.mvpvmdemo">
 
-    <meta-data android:name="design_width" android:value="720" />
-    <meta-data android:name="design_height" android:value="1280" />
-
     <application
         android:name=".MyApplication"
         android:allowBackup="false"
@@ -15,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
+
+        <meta-data android:name="design_width" android:value="1080" />
+        <meta-data android:name="design_height" android:value="1920" />
+
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.WebActivity" />
     </application>
 
 </manifest>

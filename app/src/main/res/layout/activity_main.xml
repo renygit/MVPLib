@@ -4,30 +4,34 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/activity_main"
+        style="@style/immersion_status"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_color"
         android:orientation="vertical"
-        android:tag="skin:bg_color:background">
+        android:tag="skin:bg_color:background"
+        app:auto="@{true}"
+        >
 
-        <android.support.design.widget.AppBarLayout
+        <!--<include layout="@layout/app_base_title" />-->
+
+        <com.reny.mvpvmdemo.widget.autolayout.AutoAppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="130px"
             android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:visibility="visible"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="48dp" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"
+                android:layout_height="96px"
+                android:background="#94139d"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        </android.support.design.widget.AppBarLayout>
+        </com.reny.mvpvmdemo.widget.autolayout.AutoAppBarLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp"

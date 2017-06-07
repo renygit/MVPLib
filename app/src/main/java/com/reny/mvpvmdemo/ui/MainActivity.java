@@ -1,5 +1,6 @@
 package com.reny.mvpvmdemo.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -95,5 +96,7 @@ public class MainActivity extends MyBaseActivity<ActivityMainBinding> {
             @Override
             public void onPageScrollStateChanged(int state) {}
         });
+
+        startActivity(new Intent(this, WebActivity.class));
     }
 }

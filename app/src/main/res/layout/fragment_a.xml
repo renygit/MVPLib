@@ -17,10 +17,10 @@
             type="FAViewModel" />-->
     </data>
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="48dp"
+        android:paddingTop="48px"
         android:orientation="vertical">
 
         <TextView
@@ -28,5 +28,5 @@
             android:layout_height="wrap_content"
             android:text="fsdfsafasd"/>
 
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 </layout>

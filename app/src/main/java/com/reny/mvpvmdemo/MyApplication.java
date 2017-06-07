@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.reny.mvpvmlib.utils.LogUtils;
 import com.reny.mvpvmlib.base.BaseApplication;
+import com.zhy.autolayout.config.AutoLayoutConifg;
 import com.zhy.changeskin.SkinManager;
 
 /**
@@ -23,6 +24,7 @@ public class MyApplication extends BaseApplication {
     }
 
     private void init() {
+        AutoLayoutConifg.getInstance().useDeviceSize().init(this);
         LogUtils.init(BuildConfig.DEBUG);
         SkinManager.getInstance().init(this);
     }
