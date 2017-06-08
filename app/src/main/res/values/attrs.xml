@@ -3,4 +3,14 @@
     <declare-styleable name="AutoTabLayout">
         <attr name="auto_textSize_base_width" format="boolean"></attr>
     </declare-styleable>
+
+    <declare-styleable name="RatioImageView">
+        <attr name="width_ratio" format="integer" />
+        <attr name="height_ratio" format="integer" />
+        <attr name="base" format="enum">
+            <enum name="width" value="0" />
+            <enum name="height" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>

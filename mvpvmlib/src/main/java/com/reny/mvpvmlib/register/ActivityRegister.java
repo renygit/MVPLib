@@ -8,7 +8,7 @@ import android.support.annotation.LayoutRes;
 import com.reny.mvpvmlib.base.BasePresenter;
 
 /**
- * Created by admin on 2017/6/5.
+ * Created by reny on 2017/6/5.
  */
 
 public class ActivityRegister {
@@ -27,6 +27,7 @@ public class ActivityRegister {
         return binding;
     }
 
+    //register时就会启动presenter的onCreate
     public ActivityRegister register(BasePresenter... presenters){
         this.presenters = presenters;
         if(null != this.presenters) {

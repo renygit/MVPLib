@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 
 /**
- * Created by admin on 2017/6/6.
+ * Created by reny on 2017/6/6.
  */
 
 public abstract class SimpleServiceFactory<S> extends BaseServiceFactory<S> {

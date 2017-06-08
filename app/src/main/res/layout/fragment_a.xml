@@ -4,9 +4,8 @@
 
     <data>
 
-        <!--<import type="android.view.View" />
-        <import type="com.dsc.databindingdemo.presenter.FAPresenter" />
-        <import type="com.dsc.databindingdemo.presenter.vm.FAViewModel" />
+        <import type="com.reny.mvpvmdemo.presenter.FAPresenter" />
+        <import type="com.reny.mvpvmdemo.vm.FAViewModel" />
 
         <variable
             name="presenter"
@@ -14,19 +13,29 @@
 
         <variable
             name="viewModel"
-            type="FAViewModel" />-->
+            type="FAViewModel" />
     </data>
 
-    <com.zhy.autolayout.AutoLinearLayout
+    <com.reny.mvpvmdemo.widget.autolayout.AutoMultiStateView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="48px"
-        android:orientation="vertical">
+        app:emptyView="@layout/custom_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:loadingView="@layout/custom_loading_view"
+        app:noNetworkView="@layout/custom_no_network_view"
+        >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="fsdfsafasd"/>
+        <com.liaoinstan.springview.widget.SpringView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </com.zhy.autolayout.AutoLinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.liaoinstan.springview.widget.SpringView>
+
+    </com.reny.mvpvmdemo.widget.autolayout.AutoMultiStateView>
+
+
 </layout>

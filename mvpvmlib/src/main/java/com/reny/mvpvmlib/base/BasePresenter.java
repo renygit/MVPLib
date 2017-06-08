@@ -7,7 +7,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 
 /**
- * Created by admin on 2017/6/5.
+ * Created by reny on 2017/6/5.
  */
 
 public abstract class BasePresenter<V extends IBaseView, VM extends BaseViewModel>{

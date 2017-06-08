@@ -8,9 +8,9 @@ import com.reny.mvpvmlib.base.IBaseView;
  * Created by admin on 2017/6/6.
  */
 
-public class MainPresenter extends MyBasePresenter<IBaseView, BaseViewModel> {
+public class FAPresenter extends MyBasePresenter<IBaseView, BaseViewModel> {
 
-    public MainPresenter(IBaseView view, BaseViewModel viewModel) {
+    public FAPresenter(IBaseView view, BaseViewModel viewModel) {
         super(view, viewModel);
     }
 

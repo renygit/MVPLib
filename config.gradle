@@ -45,7 +45,6 @@ ext {
             "imagepicker"              : "com.lzy.widget:imagepicker:0.5.5",
             "photoview"                : "com.github.chrisbanes.photoview:library:1.2.3",
             "nineoldandroids"          : "com.nineoldandroids:library:2.4.0",
-            "paginate"                 : "com.github.markomilos:paginate:0.5.1",
 
             //tools
             "glide"                    : "com.github.bumptech.glide:glide:3.7.0",

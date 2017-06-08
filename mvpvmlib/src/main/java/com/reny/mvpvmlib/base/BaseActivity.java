@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.reny.mvpvmlib.register.ActivityRegister;
 
 /**
- * Created by admin on 2017/6/5.
+ * Created by reny on 2017/6/5.
  */
 
 public abstract class BaseActivity<DB extends ViewDataBinding> extends AppCompatActivity implements IBaseView{

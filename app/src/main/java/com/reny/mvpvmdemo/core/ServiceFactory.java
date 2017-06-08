@@ -27,6 +27,8 @@ import okhttp3.OkHttpClient;
 
 public class ServiceFactory<S> extends SimpleServiceFactory<S> {
 
+    private ServiceFactory(){}
+
     private static class SingletonHolder {
         private static final ServiceFactory INSTANCE = new ServiceFactory();
     }

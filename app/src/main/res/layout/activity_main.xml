@@ -9,29 +9,21 @@
         android:layout_height="match_parent"
         android:background="@color/bg_color"
         android:orientation="vertical"
-        android:tag="skin:bg_color:background"
-        app:auto="@{true}"
-        >
+        android:tag="skin:bg_color:background">
 
-        <!--<include layout="@layout/app_base_title" />-->
-
-        <com.reny.mvpvmdemo.widget.autolayout.AutoAppBarLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="130px"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:visibility="visible"
             android:theme="@style/AppTheme.AppBarOverlay">
-
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="96px"
-                android:background="#94139d"
+                android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        </com.reny.mvpvmdemo.widget.autolayout.AutoAppBarLayout>
+        </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/vp"

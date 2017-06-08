@@ -21,6 +21,7 @@ import qiu.niorgai.StatusBarCompat;
 
 /**
  * Created by reny on 2017/3/6.
+ * core包下的类是对库的二次封装，建议都做一次二次封装，方便统一调整，甚至重建自己的初始化流程，eg：重写init 在里面调自己的抽象方法
  * 新增状态栏相关处理
  */
 

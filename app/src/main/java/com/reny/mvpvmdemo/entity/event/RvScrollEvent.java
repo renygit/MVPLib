@@ -8,16 +8,16 @@ package com.reny.mvpvmdemo.entity.event;
 
 public class RvScrollEvent {
 
-    private String type;
+    private int tabIndex;
     private int pos;
 
-    public RvScrollEvent(String type, int pos){
-        this.type = type;
+    public RvScrollEvent(int tabIndex, int pos){
+        this.tabIndex = tabIndex;
         this.pos = pos;
     }
 
-    public String getType() {
-        return type;
+    public int getTabIndex() {
+        return tabIndex;
     }
 
     public int getPos() {

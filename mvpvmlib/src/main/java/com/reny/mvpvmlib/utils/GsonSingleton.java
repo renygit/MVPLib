@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 /**
- * Created by admin on 2017/6/6.
+ * Created by reny on 2017/6/6.
  */
 
 public class GsonSingleton {

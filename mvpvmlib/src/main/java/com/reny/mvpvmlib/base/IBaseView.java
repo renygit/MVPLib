@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * Created by admin on 2017/6/5.
+ * Created by reny on 2017/6/5.
  */
 
 public interface IBaseView {

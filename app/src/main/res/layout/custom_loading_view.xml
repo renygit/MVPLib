@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loading_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="90px"
+        android:layout_height="90px"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+        app:indicatorName="BallClipRotateMultipleIndicator"
+        app:indicatorColor="@color/colorAccent"
+        />
+</com.zhy.autolayout.AutoRelativeLayout>

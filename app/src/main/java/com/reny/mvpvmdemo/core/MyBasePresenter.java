@@ -18,6 +18,9 @@ public abstract class MyBasePresenter<V extends IBaseView, VM extends BaseViewMo
         super(view, viewModel);
     }
 
+    public void loadData(boolean isRefresh) {
+    }
+
     /**
      * 检查定位需要的权限
      */
