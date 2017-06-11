@@ -23,11 +23,14 @@
         app:errorView="@layout/custom_error_view"
         app:loadingView="@layout/custom_loading_view"
         app:noNetworkView="@layout/custom_no_network_view"
+        app:multiState="@{viewModel.stateType}"
+        app:presenter="@{presenter}"
         >
 
         <com.liaoinstan.springview.widget.SpringView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:presenter="@{presenter}">
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"

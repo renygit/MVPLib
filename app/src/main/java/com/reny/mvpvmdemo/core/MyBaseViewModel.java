@@ -2,7 +2,7 @@ package com.reny.mvpvmdemo.core;
 
 import android.databinding.ObservableBoolean;
 
-import com.reny.mvpvmdemo.BR;
+import com.reny.mvpvmdemo.entity.other.StateViewType;
 import com.reny.mvpvmlib.base.BaseViewModel;
 
 /**
@@ -12,15 +12,10 @@ import com.reny.mvpvmlib.base.BaseViewModel;
 public class MyBaseViewModel extends BaseViewModel {
 
     public ObservableBoolean loading = new ObservableBoolean(false);
-    public StateViewType stateType = StateViewType.LOADING;
+    public StateViewType stateType = new StateViewType();
 
-    public void setStateType(StateViewType stateType) {
-        this.stateType = stateType;
-        //notifyPropertyChanged();
-    }
-
-    public enum  StateViewType{
-        LOADING,EMPTY,ERROR,NONET,SHOWCONTENT
+    public void setStateType(StateViewType.StateType stateType) {
+        this.stateType.setState(stateType);
     }
 
 }

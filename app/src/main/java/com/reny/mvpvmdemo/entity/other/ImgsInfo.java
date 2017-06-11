@@ -1,4 +1,4 @@
-package com.reny.mvpvmdemo.entity;
+package com.reny.mvpvmdemo.entity.other;
 
 import java.io.Serializable;
 import java.util.List;

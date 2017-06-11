@@ -1,16 +1,16 @@
 package com.reny.mvpvmdemo.presenter;
 
 import com.reny.mvpvmdemo.core.MyBasePresenter;
-import com.reny.mvpvmlib.base.BaseViewModel;
+import com.reny.mvpvmdemo.vm.FAViewModel;
 import com.reny.mvpvmlib.base.IBaseView;
 
 /**
  * Created by admin on 2017/6/6.
  */
 
-public class FAPresenter extends MyBasePresenter<IBaseView, BaseViewModel> {
+public class FAPresenter extends MyBasePresenter<IBaseView, FAViewModel> {
 
-    public FAPresenter(IBaseView view, BaseViewModel viewModel) {
+    public FAPresenter(IBaseView view, FAViewModel viewModel) {
         super(view, viewModel);
     }
 
