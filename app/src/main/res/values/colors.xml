@@ -7,4 +7,7 @@
     <color name="bg_color">#eeeeee</color>
     <color name="bg_color_night">#504f4f</color>
 
+    <color name="text_color">#222222</color>
+    <color name="text_color_night">#FFFFFF</color>
+
 </resources>

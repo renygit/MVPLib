@@ -1,7 +1,7 @@
 package com.reny.mvpvmdemo.api;
 
 
-import com.reny.mvpvmdemo.entity.response.GankData;
+import com.reny.mvpvmdemo.entity.model.GankData;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

@@ -15,7 +15,7 @@ import java.lang.reflect.Field;
  * Created by reny on 2017/1/6.
  */
 
-public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment {
+public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment implements IBaseView{
 
     private boolean isInit = false;
     private boolean isStart = false;
@@ -51,6 +51,7 @@ public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment 
             isLazyLoad = bundle.getBoolean(INTENT_BOOLEAN_LAZYLOAD, isLazyLoad);
         }
 
+        getPresenter();//这里提前初始化Presenter   init中需要用到
         init(savedInstanceState);
         //为什么不直接getUserVisibleHint();而是通过自己存isVisibleToUserState变量判断
         //因为v4的25的版本 已经调用 setUserVisibleHint(true)，结果到这里getUserVisibleHint是false
@@ -176,6 +177,10 @@ public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment 
         }
     }
 
+    @Override
+    public void finish() {
+        getActivity().finish();
+    }
 
     protected abstract BasePresenter getPresenter();
 

@@ -1,4 +1,4 @@
-package com.reny.mvpvmdemo.entity.response;
+package com.reny.mvpvmdemo.entity.model;
 
 import java.util.List;
 

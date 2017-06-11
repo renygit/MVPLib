@@ -16,29 +16,33 @@
             type="FAViewModel" />
     </data>
 
-    <com.reny.mvpvmdemo.widget.autolayout.AutoMultiStateView
+    <com.classic.common.MultipleStatusView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:emptyView="@layout/custom_empty_view"
         app:errorView="@layout/custom_error_view"
         app:loadingView="@layout/custom_loading_view"
         app:noNetworkView="@layout/custom_no_network_view"
-        app:multiState="@{viewModel.stateType}"
+        app:multiState="@{viewModel.stateViewType}"
         app:presenter="@{presenter}"
         >
 
         <com.liaoinstan.springview.widget.SpringView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:presenter="@{presenter}">
+            app:type="follow"
+            app:presenter="@{presenter}"
+            app:loading="@{viewModel.loading}">
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                app:adapter="@{viewModel.adapter}"
+                app:layoutManager="@{viewModel.layoutManager}"/>
 
         </com.liaoinstan.springview.widget.SpringView>
 
-    </com.reny.mvpvmdemo.widget.autolayout.AutoMultiStateView>
+    </com.classic.common.MultipleStatusView>
 
 
 </layout>
