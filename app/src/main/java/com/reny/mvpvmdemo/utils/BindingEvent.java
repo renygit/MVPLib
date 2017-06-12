@@ -6,9 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.classic.common.MultipleStatusView;
-import com.liaoinstan.springview.container.AcFunFooter;
-import com.liaoinstan.springview.container.AliFooter;
-import com.liaoinstan.springview.container.MeituanFooter;
 import com.liaoinstan.springview.container.RotationFooter;
 import com.liaoinstan.springview.container.RotationHeader;
 import com.liaoinstan.springview.widget.SpringView;
