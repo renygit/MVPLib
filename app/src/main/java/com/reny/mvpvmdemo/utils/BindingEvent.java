@@ -6,8 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.classic.common.MultipleStatusView;
-import com.liaoinstan.springview.container.DefaultFooter;
-import com.liaoinstan.springview.container.DefaultHeader;
+import com.liaoinstan.springview.container.AcFunFooter;
+import com.liaoinstan.springview.container.AliFooter;
+import com.liaoinstan.springview.container.MeituanFooter;
+import com.liaoinstan.springview.container.RotationFooter;
+import com.liaoinstan.springview.container.RotationHeader;
 import com.liaoinstan.springview.widget.SpringView;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.utils.img.ImageUtils;
@@ -69,8 +72,8 @@ public class BindingEvent {
 
     @BindingAdapter("presenter")
     public static void initSpringView(final SpringView view, final MyBasePresenter presenter){
-        view.setHeader(new DefaultHeader(view.getContext()));
-        view.setFooter(new DefaultFooter(view.getContext()));
+        view.setHeader(new RotationHeader(view.getContext()));
+        view.setFooter(new RotationFooter(view.getContext()));
         view.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {

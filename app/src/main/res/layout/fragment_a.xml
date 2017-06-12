@@ -19,6 +19,7 @@
     <com.classic.common.MultipleStatusView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="@dimen/status_bar_height"
         app:emptyView="@layout/custom_empty_view"
         app:errorView="@layout/custom_error_view"
         app:loadingView="@layout/custom_loading_view"

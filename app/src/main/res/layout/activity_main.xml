@@ -4,7 +4,6 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/activity_main"
-        style="@style/immersion_status"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_color"
@@ -16,6 +15,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:theme="@style/AppTheme.AppBarOverlay">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/status_bar_height" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
