@@ -4,10 +4,20 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="black">#000000</color>
+
     <color name="bg_color">#eeeeee</color>
     <color name="bg_color_night">#504f4f</color>
 
     <color name="text_color">#222222</color>
     <color name="text_color_night">#FFFFFF</color>
+
+
+    <integer-array name="refresh_colors">
+        <item>@color/black</item>
+        <item>@color/black</item>
+        <item>@color/black</item>
+        <item>@color/black</item>
+    </integer-array>
 
 </resources>

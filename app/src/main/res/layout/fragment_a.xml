@@ -23,25 +23,23 @@
         app:emptyView="@layout/custom_empty_view"
         app:errorView="@layout/custom_error_view"
         app:loadingView="@layout/custom_loading_view"
-        app:noNetworkView="@layout/custom_no_network_view"
         app:multiState="@{viewModel.stateViewType}"
-        app:presenter="@{presenter}"
-        >
+        app:noNetworkView="@layout/custom_no_network_view"
+        app:presenter="@{presenter}">
 
-        <com.liaoinstan.springview.widget.SpringView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:type="follow"
-            app:presenter="@{presenter}"
-            app:loading="@{viewModel.loading}">
+        <in.srain.cube.views.ptr.PtrFrameLayout
+            android:id="@+id/pfl"
+            style="@style/refreshStyle"
+            app:loading="@{viewModel.loading}"
+            app:presenter="@{presenter}">
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:adapter="@{viewModel.adapter}"
-                app:layoutManager="@{viewModel.layoutManager}"/>
+                app:layoutManager="@{viewModel.layoutManager}" />
 
-        </com.liaoinstan.springview.widget.SpringView>
+        </in.srain.cube.views.ptr.PtrFrameLayout>
 
     </com.classic.common.MultipleStatusView>
 

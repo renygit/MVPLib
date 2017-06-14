@@ -6,14 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.classic.common.MultipleStatusView;
-import com.liaoinstan.springview.container.RotationFooter;
-import com.liaoinstan.springview.container.RotationHeader;
-import com.liaoinstan.springview.widget.SpringView;
+import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.utils.img.ImageUtils;
 import com.zhy.autolayout.utils.AutoUtils;
 
-import cn.bingoogolapple.androidcommon.adapter.BGABindingRecyclerViewAdapter;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.header.MaterialHeader;
 
 /**
  * Created by reny on 2017/1/5.
@@ -28,7 +28,7 @@ public class BindingEvent {
 
 
     @BindingAdapter("adapter")
-    public static void setAdapter(final RecyclerView rv, BGABindingRecyclerViewAdapter adapter){
+    public static void setAdapter(final RecyclerView rv, RecyclerView.Adapter adapter){
         rv.setAdapter(adapter);
     }
     @BindingAdapter("layoutManager")
@@ -68,27 +68,39 @@ public class BindingEvent {
     }
 
     @BindingAdapter("presenter")
-    public static void initSpringView(final SpringView view, final MyBasePresenter presenter){
-        view.setHeader(new RotationHeader(view.getContext()));
-        view.setFooter(new RotationFooter(view.getContext()));
-        view.setListener(new SpringView.OnFreshListener() {
+    public static void setRefreshPresenter(PtrFrameLayout pfl, final MyBasePresenter presenter){
+        // header
+        final MaterialHeader header = new MaterialHeader(pfl.getContext());
+        int[] colors = ResUtils.getArrInt(R.array.refresh_colors);
+        header.setColorSchemeColors(colors);
+        header.setLayoutParams(new PtrFrameLayout.LayoutParams(-1, -2));
+        header.setPadding(0, CommonUtils.dp2px(15), 0, CommonUtils.dp2px(10));
+        header.setPtrFrameLayout(pfl);
+
+        pfl.setLoadingMinTime(1000);
+        pfl.setDurationToCloseHeader(1500);
+        pfl.setHeaderView(header);
+        pfl.addPtrUIHandler(header);
+
+        pfl.setPtrHandler(new PtrDefaultHandler() {
             @Override
-            public void onRefresh() {
+            public void onRefreshBegin(PtrFrameLayout frame) {
                 presenter.loadData(true);
-            }
-            @Override
-            public void onLoadmore() {
-                presenter.loadData(false);
             }
         });
     }
 
     @BindingAdapter("loading")
-    public static void setSpringViewLoading(final SpringView view, boolean loading){
+    public static void setRefreshLoading(final PtrFrameLayout pfl, boolean loading){
         if(loading){
-            view.callFresh();
+            pfl.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    pfl.autoRefresh(true);
+                }
+            }, 100);
         }else {
-            view.onFinishFreshAndLoad();
+            pfl.refreshComplete();
         }
     }
 

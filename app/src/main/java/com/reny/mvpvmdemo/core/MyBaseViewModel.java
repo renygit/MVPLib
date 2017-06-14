@@ -4,6 +4,7 @@ import android.databinding.ObservableBoolean;
 import android.databinding.ObservableInt;
 
 import com.classic.common.MultipleStatusView;
+import com.reny.mvpvmdemo.BR;
 import com.reny.mvpvmdemo.utils.ToastUtils;
 import com.reny.mvpvmlib.base.BaseViewModel;
 
@@ -15,11 +16,16 @@ import java.util.List;
 
 public class MyBaseViewModel extends BaseViewModel {
 
-    public boolean firstLoadData = true;
+    private boolean firstLoadData = true;
     public ObservableBoolean loading = new ObservableBoolean(false);
     public ObservableInt stateViewType = new ObservableInt(MultipleStatusView.STATUS_LOADING);
 
-    public void setDataState(Object datas) {
+    private void refreshComplete(){
+        loading.set(true);
+        loading.set(false);
+    }
+
+    protected void setDataState(Object datas) {
         boolean noData = (null == datas);
         if (datas instanceof List) {
             noData = (((List) datas).size() == 0);
@@ -31,16 +37,16 @@ public class MyBaseViewModel extends BaseViewModel {
                 firstLoadData = false;//第一次加载数据成功
             }
         }
-        loading.set(true);
-        loading.set(false);
+        if(noData)ToastUtils.showShort("没有更多数据了");
+        refreshComplete();
     }
 
     public void onError(Throwable e){
         if (firstLoadData) {
             stateViewType.set(MultipleStatusView.STATUS_ERROR);
         }else{
-            loading.set(false);
-            ToastUtils.showShort("加载失败");
+            refreshComplete();
+            ToastUtils.showShort("加载失败，请重试");
         }
     }
 

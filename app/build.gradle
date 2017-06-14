@@ -71,8 +71,8 @@ dependencies {
 
     compile 'com.zhy:changeskin:4.0.2'
 
-    compile 'com.liaoinstan.springview:library:1.2.7'
-
     //RecyclerView万能Adapter
     compile 'cn.bingoogolapple:bga-adapter:1.1.8@aar'
+
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
 }

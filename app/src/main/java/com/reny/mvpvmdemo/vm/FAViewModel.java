@@ -20,6 +20,8 @@ public class FAViewModel extends MyBaseViewModel {
 
     public void setData(boolean isRefresh, GankData data){
         setDataState(data.getResults());
+        //adapter.addFooterView();
+        //adapter.getHeaderAndFooterAdapter()
         if(isRefresh){
             adapter.clear();
             adapter.addNewData(data.getResults());
