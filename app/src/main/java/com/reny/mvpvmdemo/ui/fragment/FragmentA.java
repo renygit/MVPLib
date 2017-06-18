@@ -23,7 +23,8 @@ public class FragmentA extends MyBaseFragment<FragmentABinding> {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(RvScrollEvent event) {
-        if(event.getTabIndex() == 0){
+        if (event.getTabIndex() == 0) {
+            //binding.rv.scrollTo(0, 0);
             presenter.getViewModel().layoutManager.scrollToPositionWithOffset(event.getPos(), 0);
         }
     }
@@ -35,7 +36,7 @@ public class FragmentA extends MyBaseFragment<FragmentABinding> {
 
     @Override
     protected BasePresenter getPresenter() {
-        if(null == presenter){
+        if (null == presenter) {
             presenter = new FAPresenter(this, new FAViewModel());
         }
         return presenter;

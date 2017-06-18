@@ -2,6 +2,8 @@ package com.reny.mvpvmdemo.utils;
 
 import com.reny.mvpvmdemo.MyApplication;
 
+import java.util.List;
+
 /**
  * Created by reny on 2017/6/14.
  */
@@ -26,6 +28,15 @@ public class CommonUtils {
     public static int sp2px(float spValue) {
         final float fontScale = MyApplication.getContext().getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
+    }
+
+
+    public static boolean isEmpty(Object datas){
+        boolean isEmpty = (null == datas);
+        if (datas instanceof List) {
+            isEmpty = (((List) datas).size() == 0);
+        }
+        return isEmpty;
     }
 
 }

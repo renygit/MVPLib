@@ -34,7 +34,11 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     @Override
     public T convert(ResponseBody value) throws IOException {
         String body = value.string();
-        LogUtils.w(body);
+
+        if(LogUtils.isPrintResponseData) {
+            LogUtils.w(body);
+        }
+
         try {
             return adapter.fromJson(body);
         } finally {

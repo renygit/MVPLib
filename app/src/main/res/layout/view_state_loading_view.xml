@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     >
     <com.wang.avi.AVLoadingIndicatorView
-        android:layout_width="90px"
-        android:layout_height="90px"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_centerInParent="true"
         android:visibility="visible"
-        app:indicatorName="BallClipRotateMultipleIndicator"
-        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallPulseIndicator"
+        app:indicatorColor="@color/colorPrimary"
         />
 </com.zhy.autolayout.AutoRelativeLayout>

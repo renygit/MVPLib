@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View" />
 
         <import type="com.reny.mvpvmdemo.presenter.FAPresenter" />
+
         <import type="com.reny.mvpvmdemo.vm.FAViewModel" />
 
         <variable
@@ -20,24 +22,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/status_bar_height"
-        app:emptyView="@layout/custom_empty_view"
-        app:errorView="@layout/custom_error_view"
-        app:loadingView="@layout/custom_loading_view"
+        app:emptyView="@layout/view_state_empty_view"
+        app:errorView="@layout/view_state_error_view"
+        app:loadingView="@layout/view_state_loading_view"
         app:multiState="@{viewModel.stateViewType}"
-        app:noNetworkView="@layout/custom_no_network_view"
+        app:noNetworkView="@layout/view_state_no_network_view"
         app:presenter="@{presenter}">
 
         <in.srain.cube.views.ptr.PtrFrameLayout
-            android:id="@+id/pfl"
             style="@style/refreshStyle"
+            android:visibility="@{viewModel.stateViewType == 0 ? View.VISIBLE : View.GONE}"
             app:loading="@{viewModel.loading}"
             app:presenter="@{presenter}">
 
-            <android.support.v7.widget.RecyclerView
+            <com.github.jdsjlzx.recyclerview.LRecyclerView
+                android:id="@+id/rv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="@{viewModel.layoutManager}"
                 app:adapter="@{viewModel.adapter}"
-                app:layoutManager="@{viewModel.layoutManager}" />
+                app:noMore="@{viewModel.noMore}"
+                app:loading="@{viewModel.loading}"
+                app:isError="@{viewModel.isError}"
+                app:presenter="@{presenter}"/>
 
         </in.srain.cube.views.ptr.PtrFrameLayout>
 
