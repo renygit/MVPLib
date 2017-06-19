@@ -13,8 +13,6 @@ import com.github.jdsjlzx.recyclerview.ProgressStyle;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.utils.img.ImageUtils;
-import com.reny.mvpvmlib.utils.LogUtils;
-import com.zhy.autolayout.utils.AutoUtils;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -26,10 +24,10 @@ import in.srain.cube.views.ptr.header.MaterialHeader;
 
 public class BindingEvent {
 
-    @BindingAdapter("auto")
+    /*@BindingAdapter("auto")
     public static void setAutoLayoutSize(final View view, boolean enable){
         AutoUtils.autoSize(view);
-    }
+    }*/
 
 
     @BindingAdapter("adapter")

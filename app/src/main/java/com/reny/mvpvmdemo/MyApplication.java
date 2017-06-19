@@ -6,7 +6,6 @@ import android.content.Context;
 import com.reny.mvpvmdemo.utils.img.GlideLoadStrategy;
 import com.reny.mvpvmdemo.utils.img.ImageUtils;
 import com.reny.mvpvmlib.utils.LogUtils;
-import com.zhy.autolayout.config.AutoLayoutConifg;
 import com.zhy.changeskin.SkinManager;
 
 /**
@@ -26,7 +25,7 @@ public class MyApplication extends Application {
     }
 
     private void init() {
-        AutoLayoutConifg.getInstance().useDeviceSize().init(this);
+        //AutoLayoutConifg.getInstance().useDeviceSize().init(this);
         ImageUtils.getInstance().init(new GlideLoadStrategy());
         LogUtils.init(BuildConfig.DEBUG);
         SkinManager.getInstance().init(this);
