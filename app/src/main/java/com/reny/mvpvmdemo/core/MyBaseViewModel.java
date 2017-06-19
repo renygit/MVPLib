@@ -6,7 +6,7 @@ import android.databinding.ObservableInt;
 import com.classic.common.MultipleStatusView;
 import com.reny.mvpvmdemo.utils.Network;
 import com.reny.mvpvmdemo.utils.ToastUtils;
-import com.reny.mvpvmlib.base.BaseViewModel;
+import com.reny.mvpvmlib.base.RBaseViewModel;
 import com.reny.mvpvmlib.utils.LogUtils;
 
 /**
@@ -14,7 +14,7 @@ import com.reny.mvpvmlib.utils.LogUtils;
  * 有刷新和加载更多逻辑
  */
 
-public class MyBaseViewModel extends BaseViewModel {
+public class MyBaseViewModel extends RBaseViewModel {
 
     public boolean firstLoadData = true;//是否第一次加载数据
     public ObservableBoolean loading = new ObservableBoolean(false);//是否正在下拉刷新或加载更多

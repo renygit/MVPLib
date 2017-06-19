@@ -1,14 +1,14 @@
 package com.reny.mvpvmdemo.core;
 
 import com.classic.common.MultipleStatusView;
-import com.reny.mvpvmlib.base.BasePresenter;
-import com.reny.mvpvmlib.base.IBaseView;
+import com.reny.mvpvmlib.base.RBasePresenter;
+import com.reny.mvpvmlib.base.IRBaseView;
 
 /**
  * Created by admin on 2017/6/6.
  */
 
-public abstract class MyBasePresenter<V extends IBaseView, VM extends MyBaseViewModel> extends BasePresenter<V,VM> {
+public abstract class MyBasePresenter<V extends IRBaseView, VM extends MyBaseViewModel> extends RBasePresenter<V,VM> {
 
     public MyBasePresenter(V view, VM viewModel) {
         super(view, viewModel);

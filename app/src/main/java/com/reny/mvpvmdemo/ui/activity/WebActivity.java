@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBaseActivity;
 import com.reny.mvpvmdemo.databinding.ActivityMainBinding;
-import com.reny.mvpvmlib.base.BasePresenter;
+import com.reny.mvpvmlib.base.RBasePresenter;
 
 public class WebActivity extends MyBaseActivity<ActivityMainBinding> {
 
@@ -15,7 +15,7 @@ public class WebActivity extends MyBaseActivity<ActivityMainBinding> {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    protected RBasePresenter getPresenter() {
         return null;
     }
 

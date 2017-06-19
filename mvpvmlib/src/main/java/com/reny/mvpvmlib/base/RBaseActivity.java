@@ -12,7 +12,7 @@ import com.reny.mvpvmlib.register.ActivityRegister;
  * Created by reny on 2017/6/5.
  */
 
-public abstract class BaseActivity<DB extends ViewDataBinding> extends AppCompatActivity implements IBaseView{
+public abstract class RBaseActivity<DB extends ViewDataBinding> extends AppCompatActivity implements IRBaseView {
 
     protected DB binding;
     protected ActivityRegister mActivityRegister;
@@ -41,7 +41,7 @@ public abstract class BaseActivity<DB extends ViewDataBinding> extends AppCompat
 
     protected abstract int getLayoutId();
 
-    protected abstract BasePresenter getPresenter();
+    protected abstract RBasePresenter getPresenter();
 
     protected void preOnCreate(Bundle savedInstanceState){}
 

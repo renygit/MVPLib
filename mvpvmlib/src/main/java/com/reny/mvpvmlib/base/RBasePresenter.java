@@ -10,7 +10,7 @@ import io.reactivex.observers.DisposableObserver;
  * Created by reny on 2017/6/5.
  */
 
-public abstract class BasePresenter<V extends IBaseView, VM extends BaseViewModel>{
+public abstract class RBasePresenter<V extends IRBaseView, VM extends RBaseViewModel>{
 
     private V view;
     private VM viewModel;
@@ -24,7 +24,7 @@ public abstract class BasePresenter<V extends IBaseView, VM extends BaseViewMode
     private CompositeDisposable mCompositeDisposable;
     private RxPermissions rxPermissions;
 
-    public BasePresenter(V view, VM viewModel) {
+    public RBasePresenter(V view, VM viewModel) {
         this.view = view;
         this.viewModel = viewModel;
     }

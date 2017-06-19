@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.reny.mvpvmlib.base.BaseActivity;
+import com.reny.mvpvmlib.base.RBaseActivity;
 import com.zhy.changeskin.SkinManager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -25,7 +25,7 @@ import qiu.niorgai.StatusBarCompat;
  * 新增状态栏相关处理
  */
 
-public abstract class MyBaseActivity<DB extends ViewDataBinding> extends BaseActivity<DB> {
+public abstract class MyBaseActivity<DB extends ViewDataBinding> extends RBaseActivity<DB> {
 
 
     @Override

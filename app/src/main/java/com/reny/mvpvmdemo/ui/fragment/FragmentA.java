@@ -8,7 +8,7 @@ import com.reny.mvpvmdemo.databinding.FragmentABinding;
 import com.reny.mvpvmdemo.entity.event.RvScrollEvent;
 import com.reny.mvpvmdemo.presenter.FAPresenter;
 import com.reny.mvpvmdemo.vm.FAViewModel;
-import com.reny.mvpvmlib.base.BasePresenter;
+import com.reny.mvpvmlib.base.RBasePresenter;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -35,7 +35,7 @@ public class FragmentA extends MyBaseFragment<FragmentABinding> {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    protected RBasePresenter getPresenter() {
         if (null == presenter) {
             presenter = new FAPresenter(this, new FAViewModel());
         }

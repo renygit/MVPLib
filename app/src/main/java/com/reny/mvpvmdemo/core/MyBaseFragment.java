@@ -3,7 +3,7 @@ package com.reny.mvpvmdemo.core;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 
-import com.reny.mvpvmlib.base.BaseFragment;
+import com.reny.mvpvmlib.base.RBaseFragment;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -11,7 +11,7 @@ import org.greenrobot.eventbus.EventBus;
  * Created by admin on 2017/6/7.
  */
 
-public abstract class MyBaseFragment<DB extends ViewDataBinding> extends BaseFragment<DB> {
+public abstract class MyBaseFragment<DB extends ViewDataBinding> extends RBaseFragment<DB> {
 
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {

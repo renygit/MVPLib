@@ -8,7 +8,7 @@ import android.content.Intent;
  * Created by reny on 2017/6/5.
  */
 
-public interface IBaseView {
+public interface IRBaseView {
     Activity getActivity();
 
     void startActivity(Intent intent);

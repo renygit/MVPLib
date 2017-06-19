@@ -5,7 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.LayoutRes;
 
-import com.reny.mvpvmlib.base.BasePresenter;
+import com.reny.mvpvmlib.base.RBasePresenter;
 
 /**
  * Created by reny on 2017/6/5.
@@ -14,7 +14,7 @@ import com.reny.mvpvmlib.base.BasePresenter;
 public class ActivityRegister {
 
     private ViewDataBinding binding;
-    private BasePresenter[] presenters;
+    private RBasePresenter[] presenters;
 
     public ActivityRegister initBinding(Activity activity, @LayoutRes int layoutId){
         if(null == binding){
@@ -28,10 +28,10 @@ public class ActivityRegister {
     }
 
     //register时就会启动presenter的onCreate
-    public ActivityRegister register(BasePresenter... presenters){
+    public ActivityRegister register(RBasePresenter... presenters){
         this.presenters = presenters;
         if(null != this.presenters) {
-            for (BasePresenter presenter : this.presenters) {
+            for (RBasePresenter presenter : this.presenters) {
                 if (null != presenter) presenter.onCreate();
             }
         }
@@ -40,7 +40,7 @@ public class ActivityRegister {
 
     public void unRegister(){
         if(null != this.presenters) {
-            for (BasePresenter presenter : this.presenters) {
+            for (RBasePresenter presenter : this.presenters) {
                 if (null != presenter) presenter.onDestroy();
             }
         }

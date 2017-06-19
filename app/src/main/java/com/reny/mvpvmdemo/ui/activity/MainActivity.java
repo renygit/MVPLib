@@ -16,7 +16,7 @@ import com.reny.mvpvmdemo.databinding.ActivityMainBinding;
 import com.reny.mvpvmdemo.entity.event.RvScrollEvent;
 import com.reny.mvpvmdemo.ui.fragment.FragmentA;
 import com.reny.mvpvmdemo.utils.ResUtils;
-import com.reny.mvpvmlib.base.BasePresenter;
+import com.reny.mvpvmlib.base.RBasePresenter;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -33,7 +33,7 @@ public class MainActivity extends MyBaseActivity<ActivityMainBinding> {
     }
 
     @Override
-    protected BasePresenter getPresenter() {
+    protected RBasePresenter getPresenter() {
         return null;
     }
 

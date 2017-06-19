@@ -6,7 +6,7 @@ import android.support.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.reny.mvpvmlib.base.BasePresenter;
+import com.reny.mvpvmlib.base.RBasePresenter;
 
 /**
  * Created by reny on 2017/6/5.
@@ -15,7 +15,7 @@ import com.reny.mvpvmlib.base.BasePresenter;
 public class FragmentRegister {
 
     private ViewDataBinding binding;
-    private BasePresenter[] presenters;
+    private RBasePresenter[] presenters;
 
     public FragmentRegister initBinding(LayoutInflater inflater, ViewGroup container, @LayoutRes int layoutId){
         if(null == binding){
@@ -28,10 +28,10 @@ public class FragmentRegister {
         return binding;
     }
 
-    public FragmentRegister register(BasePresenter... presenters){
+    public FragmentRegister register(RBasePresenter... presenters){
         this.presenters = presenters;
         if(null != this.presenters) {
-            for (BasePresenter presenter : this.presenters) {
+            for (RBasePresenter presenter : this.presenters) {
                 if (null != presenter) presenter.onCreate();
             }
         }
@@ -40,7 +40,7 @@ public class FragmentRegister {
 
     public void unRegister(){
         if(null != this.presenters) {
-            for (BasePresenter presenter : this.presenters) {
+            for (RBasePresenter presenter : this.presenters) {
                 if (null != presenter) presenter.onDestroy();
             }
         }

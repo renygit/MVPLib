@@ -15,7 +15,7 @@ import java.lang.reflect.Field;
  * Created by reny on 2017/1/6.
  */
 
-public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment implements IBaseView{
+public abstract class RBaseFragment<DB extends ViewDataBinding> extends Fragment implements IRBaseView {
 
     private boolean isInit = false;
     private boolean isStart = false;
@@ -35,7 +35,7 @@ public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment 
     protected DB binding;
     protected FragmentRegister mFragmentRegister;
 
-    public BaseFragment() {
+    public RBaseFragment() {
         // Required empty public constructor
     }
 
@@ -182,7 +182,7 @@ public abstract class BaseFragment<DB extends ViewDataBinding> extends Fragment 
         getActivity().finish();
     }
 
-    protected abstract BasePresenter getPresenter();
+    protected abstract RBasePresenter getPresenter();
 
     protected void onCreateViewLazy(Bundle savedInstanceState){}
 
