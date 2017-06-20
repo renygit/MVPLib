@@ -13,6 +13,9 @@ import com.reny.mvpvmdemo.api.APIConfig;
 import com.reny.mvpvmdemo.core.MyBaseActivity;
 import com.reny.mvpvmdemo.databinding.ActivityMainBinding;
 import com.reny.mvpvmdemo.ui.fragment.FragmentA;
+import com.reny.mvpvmdemo.ui.fragment.FragmentB;
+import com.reny.mvpvmdemo.ui.fragment.FragmentC;
+import com.reny.mvpvmdemo.ui.fragment.FragmentD;
 import com.reny.mvpvmdemo.utils.ResUtils;
 import com.reny.mvpvmlib.base.RBasePresenter;
 
@@ -53,9 +56,9 @@ public class MainActivity extends MyBaseActivity<ActivityMainBinding> {
 
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new FragmentA());
-        fragmentList.add(new FragmentA());
-        fragmentList.add(new FragmentA());
-        fragmentList.add(new FragmentA());
+        fragmentList.add(new FragmentB());
+        fragmentList.add(new FragmentC());
+        fragmentList.add(new FragmentD());
         binding.vp.setOffscreenPageLimit(fragmentList.size());
         //we need the savedInstanceState to retrieve the position
         binding.tabLayout.initialize(binding.vp, getSupportFragmentManager(), fragmentList, savedInstanceState);

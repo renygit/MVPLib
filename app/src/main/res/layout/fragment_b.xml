@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="com.reny.mvpvmdemo.presenter.FBPresenter" />
+
+        <variable
+            name="viewModel"
+            type="com.reny.mvpvmdemo.vm.FBViewModel" />
+    </data>
+
+    <com.classic.common.MultipleStatusView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/status_bar_height"
+        app:emptyView="@layout/view_state_empty_view"
+        app:errorView="@layout/view_state_error_view"
+        app:loadingView="@layout/view_state_loading_view"
+        app:noNetworkView="@layout/view_state_no_network_view"
+        app:multiState="@{viewModel.stateViewType}"
+        app:presenter="@{presenter}">
+
+        <in.srain.cube.views.ptr.PtrFrameLayout
+            style="@style/refreshStyle"
+            android:visibility="@{viewModel.stateViewType == 0 ? View.VISIBLE : View.GONE}"
+            app:loading="@{viewModel.loading}"
+            app:presenter="@{presenter}">
+
+            <com.github.jdsjlzx.recyclerview.LRecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="@{null}"
+                app:adapter="@{viewModel.adapter}"
+                app:loadMoreEnabled="@{viewModel.loadMoreEnable}"/>
+
+        </in.srain.cube.views.ptr.PtrFrameLayout>
+
+    </com.classic.common.MultipleStatusView>
+</layout>

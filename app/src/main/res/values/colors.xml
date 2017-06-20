@@ -14,6 +14,11 @@
 
     <color name="load_more">#888888</color>
 
+    <color name="line">#e6e6e6</color>
+
+    <color name="text_gray_color">#9b9b9b</color>
+    <color name="text_red_color">#e62121</color>
+
 
     <integer-array name="refresh_colors">
         <item>@color/black</item>

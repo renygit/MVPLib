@@ -79,6 +79,11 @@ public class BindingEvent {
         rv.setNoMore(noMore);
     }
 
+    @BindingAdapter("loadMoreEnabled")
+    public static void setLoadMoreEnabled(final LRecyclerView rv, boolean enable){
+        rv.setLoadMoreEnabled(enable);
+    }
+
 
     @BindingAdapter({"multiState", "presenter"})
     public static void setMultiState(final MultipleStatusView view, final int stateViewType, final MyBasePresenter presenter){

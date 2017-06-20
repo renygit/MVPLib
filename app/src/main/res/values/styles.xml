@@ -27,4 +27,8 @@
         <item name="ptr_resistance">1.7</item>
     </style>
 
+    <style name="ColorSwitchStyle">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
 </resources>
