@@ -17,6 +17,7 @@ import com.reny.mvpvmdemo.ui.fragment.FragmentB;
 import com.reny.mvpvmdemo.ui.fragment.FragmentC;
 import com.reny.mvpvmdemo.ui.fragment.FragmentD;
 import com.reny.mvpvmdemo.utils.ResUtils;
+import com.reny.mvpvmdemo.utils.SwipeBackUtils;
 import com.reny.mvpvmlib.base.RBasePresenter;
 
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class MainActivity extends MyBaseActivity<ActivityMainBinding> {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        SwipeBackUtils.DisableSwipeActivity(this);
+
         binding.toolbar.setTitle(tabTitles[0]);
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {

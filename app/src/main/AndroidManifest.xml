@@ -15,11 +15,17 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
 
-        <meta-data android:name="design_width" android:value="1080" />
-        <meta-data android:name="design_height" android:value="1920" />
+        <meta-data
+            android:name="design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="design_height"
+            android:value="1920" />
 
 
-        <activity android:name=".ui.activity.MainActivity">
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +33,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.WebActivity" />
+        <activity
+            android:name=".ui.activity.WebActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentAppTheme" />
     </application>
 
 </manifest>

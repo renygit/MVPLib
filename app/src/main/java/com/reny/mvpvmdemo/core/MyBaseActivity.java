@@ -5,10 +5,13 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.jude.swipbackhelper.SwipeBackHelper;
+import com.reny.mvpvmdemo.utils.SwipeBackUtils;
 import com.reny.mvpvmlib.base.RBaseActivity;
 import com.zhy.changeskin.SkinManager;
 
@@ -30,11 +33,35 @@ public abstract class MyBaseActivity<DB extends ViewDataBinding> extends RBaseAc
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        SwipeBackHelper.onCreate(this);
         super.onCreate(savedInstanceState);
         if(isEnableEventBus() && !EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().register(this);
         }
         SkinManager.getInstance().register(this);
+
+        SwipeBackUtils.EnableSwipeActivity(this, 0.1f);
+
+        if(null != getToolbar()){
+            getToolbar().setTitle("");
+            setSupportActionBar(getToolbar());
+            try {
+                //给左上角图标的左边加上一个返回的图标
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }catch (NullPointerException e){}
+            getToolbar().setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        SwipeBackHelper.onCreate(this);
     }
 
     @Override
@@ -44,6 +71,7 @@ public abstract class MyBaseActivity<DB extends ViewDataBinding> extends RBaseAc
             EventBus.getDefault().unregister(this);
         }
         SkinManager.getInstance().unregister(this);
+        SwipeBackHelper.onDestroy(this);
     }
 
 
@@ -119,6 +147,10 @@ public abstract class MyBaseActivity<DB extends ViewDataBinding> extends RBaseAc
             } catch (Exception e) {
             }
         }
+    }
+
+    protected Toolbar getToolbar(){
+        return null;
     }
 
     //是否设置状态栏为透明
