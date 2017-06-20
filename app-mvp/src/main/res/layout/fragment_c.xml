@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.reny.mvpdemo.presenter.FCPresenter" />
+        <import type="com.reny.mvpdemo.presenter.vm.FCViewModel" />
+
+        <variable
+            name="presenter"
+            type="FCPresenter" />
+
+        <variable
+            name="viewModel"
+            type="FCViewModel" />
+    </data>
+
+    <com.classic.common.MultipleStatusView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/status_bar_height"
+        app:emptyView="@layout/view_state_empty_view"
+        app:errorView="@layout/view_state_error_view"
+        app:loadingView="@layout/view_state_loading_view"
+        app:noNetworkView="@layout/view_state_no_network_view"
+        app:multiState="@{viewModel.stateViewType}"
+        app:presenter="@{presenter}">
+
+        <in.srain.cube.views.ptr.PtrFrameLayout
+            style="@style/refreshStyle"
+            android:visibility="@{viewModel.stateViewType == 0 ? View.VISIBLE : View.GONE}"
+            app:loading="@{viewModel.loading}"
+            app:presenter="@{presenter}">
+
+            <com.github.jdsjlzx.recyclerview.LRecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="@{viewModel.layoutManager}"
+                app:adapter="@{viewModel.adapter}"
+                app:noMore="@{viewModel.noMore}"
+                app:loading="@{viewModel.loading}"
+                app:isError="@{viewModel.isError}"
+                app:presenter="@{presenter}"/>
+
+        </in.srain.cube.views.ptr.PtrFrameLayout>
+
+    </com.classic.common.MultipleStatusView>
+</layout>

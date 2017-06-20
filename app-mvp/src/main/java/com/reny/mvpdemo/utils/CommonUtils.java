@@ -1,0 +1,42 @@
+package com.reny.mvpdemo.utils;
+
+import com.reny.mvpdemo.MyApplication;
+
+import java.util.List;
+
+/**
+ * Created by reny on 2017/6/14.
+ */
+
+public class CommonUtils {
+
+    public static int px2dp(float pxValue) {
+        final float scale = MyApplication.getContext().getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+
+    public static int dp2px(float dipValue) {
+        final float scale = MyApplication.getContext().getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
+    }
+
+    public static int px2sp(float pxValue) {
+        final float fontScale = MyApplication.getContext().getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
+    }
+
+    public static int sp2px(float spValue) {
+        final float fontScale = MyApplication.getContext().getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+
+
+    public static boolean isEmpty(Object datas){
+        boolean isEmpty = (null == datas);
+        if (datas instanceof List) {
+            isEmpty = (((List) datas).size() == 0);
+        }
+        return isEmpty;
+    }
+
+}

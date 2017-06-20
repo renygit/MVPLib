@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="status_bar_height">0dp</dimen>
+
+    <dimen name="line">1px</dimen>
+    <dimen name="load_more_height">60dp</dimen>
+
+</resources>

@@ -1,4 +1,4 @@
-package com.reny.mvpvmdemo.ui.activity;
+package com.reny.mvpdemo.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,19 +12,19 @@ import android.widget.ImageView;
 
 import com.github.chrisbanes.photoview.OnPhotoTapListener;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.reny.mvpvmdemo.R;
-import com.reny.mvpvmdemo.core.MyBaseActivity;
-import com.reny.mvpvmdemo.databinding.ActivityImagesBinding;
-import com.reny.mvpvmdemo.entity.other.ImgsInfo;
-import com.reny.mvpvmdemo.ui.adapter.SimpleSheetAdapter;
-import com.reny.mvpvmdemo.utils.Constans;
-import com.reny.mvpvmdemo.utils.DateTimeUtils;
-import com.reny.mvpvmdemo.utils.FileUtils;
-import com.reny.mvpvmdemo.utils.SwipeBackUtils;
-import com.reny.mvpvmdemo.utils.ToastUtils;
-import com.reny.mvpvmdemo.utils.img.ImageUtils;
-import com.reny.mvpvmdemo.utils.img.glide.DownCallBack;
-import com.reny.mvpvmdemo.widget.DividerItemDecoration;
+import com.reny.mvpdemo.R;
+import com.reny.mvpdemo.core.MyBaseActivity;
+import com.reny.mvpdemo.databinding.ActivityImagesBinding;
+import com.reny.mvpdemo.entity.other.ImgsInfo;
+import com.reny.mvpdemo.ui.adapter.SimpleSheetAdapter;
+import com.reny.mvpdemo.utils.Constans;
+import com.reny.mvpdemo.utils.DateTimeUtils;
+import com.reny.mvpdemo.utils.FileUtils;
+import com.reny.mvpdemo.utils.SwipeBackUtils;
+import com.reny.mvpdemo.utils.ToastUtils;
+import com.reny.mvpdemo.utils.img.ImageUtils;
+import com.reny.mvpdemo.utils.img.glide.DownCallBack;
+import com.reny.mvpdemo.widget.DividerItemDecoration;
 import com.reny.mvpvmlib.base.RBasePresenter;
 import com.reny.mvpvmlib.base.RBaseViewModel;
 
@@ -123,7 +123,7 @@ public class ImagesActivity extends MyBaseActivity<ActivityImagesBinding> {
             photoView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    //ToastUtils.showShort("pos:"+position);
+                    ToastUtils.showShort("pos:"+position);
                     longPressImg(v, imgsUrl.get(position));
                     return false;
                 }

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MVP-master</string>
+
+
+    <string-array name="tabTitles">
+        <item>图库</item>
+        <item>豆瓣热映</item>
+        <item>休息视频</item>
+        <item>设置</item>
+    </string-array>
+
+    <string name="str_load_more_loading">加载中</string>
+    <string name="str_load_more_error">加载失败，点击重试</string>
+    <string name="str_load_more_the_end">没有更多数据</string>
+    <string name="str_load_more_no_network">没有网络，点击重试</string>
+
+    <string name="no_storage">没有可用的存储设备</string>
+    <string name="no_permission_WRITE_EXTERNAL">缺少存储权限</string>
+
+
+</resources>

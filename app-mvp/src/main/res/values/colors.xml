@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F5860B</color>
+    <color name="colorPrimaryDark">#DB780A</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="black">#000000</color>
+
+    <color name="bg_color">#eeeeee</color>
+    <color name="bg_color_night">#504f4f</color>
+
+    <color name="text_color">#222222</color>
+    <color name="text_color_night">#FFFFFF</color>
+
+    <color name="load_more">#888888</color>
+
+    <color name="line">#e6e6e6</color>
+
+    <color name="text_gray_color">#9b9b9b</color>
+    <color name="text_red_color">#e62121</color>
+
+
+    <integer-array name="refresh_colors">
+        <item>@color/black</item>
+        <item>@color/black</item>
+        <item>@color/black</item>
+        <item>@color/black</item>
+    </integer-array>
+
+</resources>
