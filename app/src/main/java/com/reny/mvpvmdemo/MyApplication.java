@@ -3,7 +3,7 @@ package com.reny.mvpvmdemo;
 import android.app.Application;
 import android.content.Context;
 
-import com.reny.mvpvmdemo.utils.img.GlideLoadStrategy;
+import com.reny.mvpvmdemo.utils.img.glide.GlideLoadStrategy;
 import com.reny.mvpvmdemo.utils.img.ImageUtils;
 import com.reny.mvpvmlib.utils.LogUtils;
 import com.zhy.changeskin.SkinManager;

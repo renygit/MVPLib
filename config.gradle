@@ -43,7 +43,7 @@ ext {
             //view
             "autolayout"               : "com.zhy:autolayout:1.4.5",
             "imagepicker"              : "com.lzy.widget:imagepicker:0.5.5",
-            "photoview"                : "com.github.chrisbanes.photoview:library:1.2.3",
+            "photoview"                : "com.github.chrisbanes:PhotoView:2.0.0",
             "nineoldandroids"          : "com.nineoldandroids:library:2.4.0",
 
             //tools

@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.reny.mvpvmdemo.utils.img.glide.DownCallBack;
+
 /**
  * Created by reny on 2017/6/8.
  * 图片加载
@@ -64,6 +66,11 @@ public class ImageUtils implements ImgLoadStrategy {
     @Override
     public void disPlay(@Nullable Object model, @NonNull View view, @DrawableRes int placeholder, @NonNull Drawable error) {
         if(null != imageLoader)imageLoader.disPlay(model, view, placeholder, error);
+    }
+
+    @Override
+    public void downLoadPic(Context context, String url, String dir, String picName, DownCallBack callBack) {
+        if(null != imageLoader)imageLoader.downLoadPic(context, url, dir, picName, callBack);
     }
 
     @Override

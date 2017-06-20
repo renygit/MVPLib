@@ -48,6 +48,9 @@ dependencies {
     /*compile (rootProject.ext.dependencies["autolayout"]) {
         exclude group: 'com.android.support'
     }*/
+    compile (rootProject.ext.dependencies["photoview"]) {
+        exclude group: 'com.android.support'
+    }
 
     compile rootProject.ext.dependencies["glide"]
 

@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.reny.mvpvmdemo.vm.FBViewModel" />
+            type="com.reny.mvpvmdemo.presenter.vm.FBViewModel" />
     </data>
 
     <com.classic.common.MultipleStatusView

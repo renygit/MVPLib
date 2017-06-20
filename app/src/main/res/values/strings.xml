@@ -14,5 +14,8 @@
     <string name="str_load_more_the_end">没有更多数据</string>
     <string name="str_load_more_no_network">没有网络，点击重试</string>
 
+    <string name="no_storage">没有可用的存储设备</string>
+    <string name="no_permission_WRITE_EXTERNAL">缺少存储权限</string>
+
 
 </resources>

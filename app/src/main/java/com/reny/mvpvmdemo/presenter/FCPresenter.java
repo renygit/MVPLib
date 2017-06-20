@@ -9,7 +9,7 @@ import com.reny.mvpvmdemo.core.ServiceHelper;
 import com.reny.mvpvmdemo.entity.model.GankData;
 import com.reny.mvpvmdemo.ui.activity.WebActivity;
 import com.reny.mvpvmdemo.utils.ResUtils;
-import com.reny.mvpvmdemo.vm.FCViewModel;
+import com.reny.mvpvmdemo.presenter.vm.FCViewModel;
 import com.reny.mvpvmlib.base.IRBaseView;
 
 import cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder;

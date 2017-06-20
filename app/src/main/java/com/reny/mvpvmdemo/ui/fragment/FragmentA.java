@@ -6,7 +6,7 @@ import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBaseFragment;
 import com.reny.mvpvmdemo.databinding.FragmentABinding;
 import com.reny.mvpvmdemo.presenter.FAPresenter;
-import com.reny.mvpvmdemo.vm.FAViewModel;
+import com.reny.mvpvmdemo.presenter.vm.FAViewModel;
 import com.reny.mvpvmlib.base.RBasePresenter;
 
 /**

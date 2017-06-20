@@ -7,7 +7,7 @@
 
         <import type="com.reny.mvpvmdemo.presenter.FAPresenter" />
 
-        <import type="com.reny.mvpvmdemo.vm.FAViewModel" />
+        <import type="com.reny.mvpvmdemo.presenter.vm.FAViewModel" />
 
         <variable
             name="presenter"

@@ -1,4 +1,4 @@
-package com.reny.mvpvmdemo.utils.img;
+package com.reny.mvpvmdemo.utils.img.glide;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.reny.mvpvmdemo.R;
+import com.reny.mvpvmdemo.utils.img.ImgLoadStrategy;
 
 /**
  * Created by reny on 2017/6/8.
@@ -24,6 +25,7 @@ import com.reny.mvpvmdemo.R;
 public class GlideLoadStrategy implements ImgLoadStrategy {
 
     private float thumbnail = 0.1f;
+    private GlideDownImg downImg;
 
     @Override
     public void disPlay(@Nullable Object model, @NonNull final View view) {
@@ -158,6 +160,15 @@ public class GlideLoadStrategy implements ImgLoadStrategy {
                 });
             }
         }catch (Exception e){}
+    }
+
+    @Override
+    public void downLoadPic(Context context, String url, String dir, String picName, DownCallBack callBack) {
+        if(null == downImg){
+            downImg = new GlideDownImg();
+            downImg.setCallBack(callBack);
+        }
+        downImg.downLoad(context, url, dir, picName);
     }
 
 

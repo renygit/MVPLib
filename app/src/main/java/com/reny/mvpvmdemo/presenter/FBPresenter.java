@@ -6,7 +6,7 @@ import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.core.ServiceHelper;
 import com.reny.mvpvmdemo.entity.model.HotMovieData;
 import com.reny.mvpvmdemo.ui.activity.WebActivity;
-import com.reny.mvpvmdemo.vm.FBViewModel;
+import com.reny.mvpvmdemo.presenter.vm.FBViewModel;
 import com.reny.mvpvmlib.base.IRBaseView;
 
 import cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder;

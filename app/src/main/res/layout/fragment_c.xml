@@ -5,7 +5,7 @@
     <data>
         <import type="android.view.View" />
         <import type="com.reny.mvpvmdemo.presenter.FCPresenter" />
-        <import type="com.reny.mvpvmdemo.vm.FCViewModel" />
+        <import type="com.reny.mvpvmdemo.presenter.vm.FCViewModel" />
 
         <variable
             name="presenter"

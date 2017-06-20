@@ -1,4 +1,4 @@
-package com.reny.mvpvmdemo.vm;
+package com.reny.mvpvmdemo.presenter.vm;
 
 import android.support.v7.widget.StaggeredGridLayoutManager;
 

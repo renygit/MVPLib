@@ -34,13 +34,12 @@ public abstract class MyBaseActivity<DB extends ViewDataBinding> extends RBaseAc
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         SwipeBackHelper.onCreate(this);
+        SwipeBackUtils.EnableSwipeActivity(this, 0.1f);
         super.onCreate(savedInstanceState);
         if(isEnableEventBus() && !EventBus.getDefault().isRegistered(this)){
             EventBus.getDefault().register(this);
         }
         SkinManager.getInstance().register(this);
-
-        SwipeBackUtils.EnableSwipeActivity(this, 0.1f);
 
         if(null != getToolbar()){
             getToolbar().setTitle("");

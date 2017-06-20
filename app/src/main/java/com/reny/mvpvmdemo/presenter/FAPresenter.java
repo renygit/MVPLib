@@ -1,13 +1,20 @@
 package com.reny.mvpvmdemo.presenter;
 
+import android.content.Intent;
+
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.api.GankApiService;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.core.ServiceHelper;
 import com.reny.mvpvmdemo.entity.model.GankData;
+import com.reny.mvpvmdemo.entity.other.ImgsInfo;
+import com.reny.mvpvmdemo.presenter.vm.FAViewModel;
+import com.reny.mvpvmdemo.ui.activity.ImagesActivity;
 import com.reny.mvpvmdemo.utils.ResUtils;
-import com.reny.mvpvmdemo.vm.FAViewModel;
 import com.reny.mvpvmlib.base.IRBaseView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -23,6 +30,8 @@ public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> {
     private String category = GankApiService.category_a;
     private int count = ResUtils.getInteger(R.integer.load_count);
     private int page = 1;
+
+    private List<String> imgUrls;
 
     public FAPresenter(IRBaseView view, FAViewModel viewModel) {
         super(view, viewModel);
@@ -58,6 +67,18 @@ public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> {
     }
 
     public void onClickItem(BGABindingViewHolder holder, GankData.ResultsBean model) {
+        Intent intent = new Intent(context, ImagesActivity.class);
+        if(null == imgUrls) {
+            imgUrls = new ArrayList<>(count);
+        }
+        imgUrls.clear();
+        for (GankData.ResultsBean bean : getViewModel().innerAdapter.getData()) {
+            imgUrls.add(bean.getUrl());
+        }
 
+        int curPos = holder.getAdapterPositionWrapper() - 1;
+
+        intent.putExtra(ImgsInfo.KEY, new ImgsInfo(imgUrls, curPos < 0 ? 0 : curPos));
+        context.startActivity(intent);
     }
 }
