@@ -7,11 +7,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.api.APIConfig;
 import com.reny.mvpvmdemo.core.MyBaseActivity;
 import com.reny.mvpvmdemo.databinding.ActivityMainBinding;
+import com.reny.mvpvmdemo.entity.event.RvScrollEvent;
 import com.reny.mvpvmdemo.ui.fragment.FragmentA;
 import com.reny.mvpvmdemo.ui.fragment.FragmentB;
 import com.reny.mvpvmdemo.ui.fragment.FragmentC;
@@ -19,6 +21,8 @@ import com.reny.mvpvmdemo.ui.fragment.FragmentD;
 import com.reny.mvpvmdemo.utils.ResUtils;
 import com.reny.mvpvmdemo.utils.SwipeBackUtils;
 import com.reny.mvpvmlib.base.RBasePresenter;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,14 +71,14 @@ public class MainActivity extends MyBaseActivity<ActivityMainBinding> {
         binding.tabLayout.initialize(binding.vp, getSupportFragmentManager(), fragmentList, savedInstanceState);
 
         //演示“发送事件” （功能可以用FragmentA的实例调用内部方法实现滑动到顶部，eg: fragmentA.scrollToTop(); 在FragmentA中实现滚动方法即可）
-        /*binding.toolbar.setOnClickListener(new View.OnClickListener() {
+        binding.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //list回到顶部
                 int tabIndex = binding.vp.getCurrentItem();
                 EventBus.getDefault().post(new RvScrollEvent(tabIndex, 0));
             }
-        });*/
+        });
 
         binding.vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

@@ -75,7 +75,7 @@ dependencies {
     compile 'com.zhy:changeskin:4.0.2'
 
     //RecyclerView万能Adapter
-    compile 'cn.bingoogolapple:bga-adapter:1.1.8@aar'
+    compile 'cn.bingoogolapple:bga-adapter:1.1.9@aar'
 
     compile 'in.srain.cube:ultra-ptr:1.0.11'
 

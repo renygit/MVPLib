@@ -35,12 +35,12 @@
             app:loading="@{viewModel.loading}"
             app:presenter="@{presenter}">
 
-            <com.github.jdsjlzx.recyclerview.LRecyclerView
+            <com.reny.mvpvmdemo.widget.recycler.RRecyclerView
                 android:id="@+id/rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="@{viewModel.layoutManager}"
-                app:adapter="@{viewModel.adapter}"
+                app:adapter="@{viewModel.innerAdapter}"
                 app:noMore="@{viewModel.noMore}"
                 app:loading="@{viewModel.loading}"
                 app:isError="@{viewModel.isError}"
