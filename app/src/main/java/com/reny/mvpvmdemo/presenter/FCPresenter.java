@@ -33,7 +33,7 @@ public class FCPresenter extends MyBasePresenter<IRBaseView, FCViewModel> {
 
     @Override
     public void onCreate() {
-        getViewModel().innerAdapter.setItemEventHandler(this);
+        getViewModel().adapter.setItemEventHandler(this);
         loadData(true);
     }
 

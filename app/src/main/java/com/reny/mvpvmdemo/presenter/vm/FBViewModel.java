@@ -1,8 +1,5 @@
 package com.reny.mvpvmdemo.presenter.vm;
 
-import android.databinding.ObservableBoolean;
-
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBaseViewModel;
 import com.reny.mvpvmdemo.databinding.ItemFragmentBBinding;
@@ -17,17 +14,16 @@ import cn.bingoogolapple.androidcommon.adapter.BGABindingRecyclerViewAdapter;
 
 public class FBViewModel extends MyBaseViewModel {
 
-    public ObservableBoolean loadMoreEnable = new ObservableBoolean(false);
-    public BGABindingRecyclerViewAdapter<HotMovieData.SubjectsBean, ItemFragmentBBinding> innerAdapter = new BGABindingRecyclerViewAdapter<>(R.layout.item_fragment_b);
-    public LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(innerAdapter);
+    public BGABindingRecyclerViewAdapter<HotMovieData.SubjectsBean, ItemFragmentBBinding> adapter = new BGABindingRecyclerViewAdapter<>(R.layout.item_fragment_b);
+
 
     public void setData(HotMovieData data, boolean isRefresh) {
         setDataState(CommonUtils.isEmpty(data.getSubjects()));
         if(isRefresh){
-            innerAdapter.clear();
-            innerAdapter.addNewData(data.getSubjects());
+            adapter.clear();
+            adapter.addNewData(data.getSubjects());
         }else {
-            innerAdapter.addMoreData(data.getSubjects());
+            adapter.addMoreData(data.getSubjects());
         }
     }
 

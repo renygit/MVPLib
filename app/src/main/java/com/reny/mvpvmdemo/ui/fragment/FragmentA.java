@@ -1,6 +1,7 @@
 package com.reny.mvpvmdemo.ui.fragment;
 
 import android.os.Bundle;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBaseFragment;
@@ -21,12 +22,12 @@ public class FragmentA extends MyBaseFragment<FragmentABinding> {
 
     private FAPresenter presenter;
 
+    private StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(RvScrollEvent event) {
         if (event.getTabIndex() == 0) {
-            //暂时不做滚动到顶部的功能 这里滚动了下拉刷新就无法使用PtrFrameLayout来下拉刷新了
-            //binding.rv.scrollToPosition(0);
-            presenter.getViewModel().layoutManager.scrollToPositionWithOffset(event.getPos(), 0);
+            layoutManager.scrollToPositionWithOffset(event.getPos(), 0);
         }
     }
 
@@ -47,6 +48,7 @@ public class FragmentA extends MyBaseFragment<FragmentABinding> {
     protected void init(Bundle savedInstanceState) {
         binding.setPresenter(presenter);
         binding.setViewModel(presenter.getViewModel());
+        binding.setLayoutManager(layoutManager);
     }
 
     @Override

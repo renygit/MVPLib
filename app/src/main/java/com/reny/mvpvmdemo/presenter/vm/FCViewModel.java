@@ -1,8 +1,5 @@
 package com.reny.mvpvmdemo.presenter.vm;
 
-import android.support.v7.widget.StaggeredGridLayoutManager;
-
-import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBaseViewModel;
 import com.reny.mvpvmdemo.databinding.ItemFragmentCBinding;
@@ -17,17 +14,15 @@ import cn.bingoogolapple.androidcommon.adapter.BGABindingRecyclerViewAdapter;
 
 public class FCViewModel extends MyBaseViewModel {
 
-    public StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-    public BGABindingRecyclerViewAdapter<GankData.ResultsBean, ItemFragmentCBinding> innerAdapter = new BGABindingRecyclerViewAdapter<>(R.layout.item_fragment_c);
-    public LRecyclerViewAdapter adapter = new LRecyclerViewAdapter(innerAdapter);
+    public BGABindingRecyclerViewAdapter<GankData.ResultsBean, ItemFragmentCBinding> adapter = new BGABindingRecyclerViewAdapter<>(R.layout.item_fragment_c);
 
     public void setData(GankData data, boolean isRefresh) {
         setDataState(CommonUtils.isEmpty(data.getResults()));
         if(isRefresh){
-            innerAdapter.clear();
-            innerAdapter.addNewData(data.getResults());
+            adapter.clear();
+            adapter.addNewData(data.getResults());
         }else {
-            innerAdapter.addMoreData(data.getResults());
+            adapter.addMoreData(data.getResults());
         }
     }
 

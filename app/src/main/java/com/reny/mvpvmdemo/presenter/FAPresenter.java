@@ -39,7 +39,7 @@ public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> {
 
     @Override
     public void onCreate() {
-        getViewModel().innerAdapter.setItemEventHandler(this);
+        getViewModel().adapter.setItemEventHandler(this);
         loadData(true);
     }
 
@@ -72,7 +72,7 @@ public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> {
             imgUrls = new ArrayList<>(count);
         }
         imgUrls.clear();
-        for (GankData.ResultsBean bean : getViewModel().innerAdapter.getData()) {
+        for (GankData.ResultsBean bean : getViewModel().adapter.getData()) {
             imgUrls.add(bean.getUrl());
         }
 

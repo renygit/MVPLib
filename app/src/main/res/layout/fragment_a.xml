@@ -16,6 +16,10 @@
         <variable
             name="viewModel"
             type="FAViewModel" />
+
+        <variable
+            name="layoutManager"
+            type="android.support.v7.widget.RecyclerView.LayoutManager" />
     </data>
 
     <com.classic.common.MultipleStatusView
@@ -35,12 +39,12 @@
             app:loading="@{viewModel.loading}"
             app:presenter="@{presenter}">
 
-            <com.reny.mvpvmdemo.widget.recycler.RRecyclerView
+            <com.renygit.recycleview.RRecyclerView
                 android:id="@+id/rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layoutManager="@{viewModel.layoutManager}"
-                app:adapter="@{viewModel.innerAdapter}"
+                app:layoutManager="@{layoutManager}"
+                app:adapter="@{viewModel.adapter}"
                 app:noMore="@{viewModel.noMore}"
                 app:loading="@{viewModel.loading}"
                 app:isError="@{viewModel.isError}"

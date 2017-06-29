@@ -12,6 +12,10 @@
         <variable
             name="viewModel"
             type="com.reny.mvpvmdemo.presenter.vm.FBViewModel" />
+
+        <variable
+            name="layoutManager"
+            type="android.support.v7.widget.RecyclerView.LayoutManager" />
     </data>
 
     <com.classic.common.MultipleStatusView
@@ -31,12 +35,11 @@
             app:loading="@{viewModel.loading}"
             app:presenter="@{presenter}">
 
-            <com.github.jdsjlzx.recyclerview.LRecyclerView
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layoutManager="@{null}"
-                app:adapter="@{viewModel.adapter}"
-                app:loadMoreEnabled="@{viewModel.loadMoreEnable}"/>
+                app:layoutManager="@{layoutManager}"
+                app:adapter="@{viewModel.adapter}"/>
 
         </in.srain.cube.views.ptr.PtrFrameLayout>
 

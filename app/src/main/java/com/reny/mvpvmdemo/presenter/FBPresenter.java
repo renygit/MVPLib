@@ -5,8 +5,8 @@ import android.content.Intent;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.core.ServiceHelper;
 import com.reny.mvpvmdemo.entity.model.HotMovieData;
-import com.reny.mvpvmdemo.ui.activity.WebActivity;
 import com.reny.mvpvmdemo.presenter.vm.FBViewModel;
+import com.reny.mvpvmdemo.ui.activity.WebActivity;
 import com.reny.mvpvmlib.base.IRBaseView;
 
 import cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder;
@@ -26,7 +26,7 @@ public class FBPresenter extends MyBasePresenter<IRBaseView, FBViewModel> {
 
     @Override
     public void onCreate() {
-        getViewModel().innerAdapter.setItemEventHandler(this);
+        getViewModel().adapter.setItemEventHandler(this);
         loadData(true);
     }
 
