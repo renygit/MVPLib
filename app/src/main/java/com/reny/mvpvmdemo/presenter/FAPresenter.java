@@ -2,6 +2,8 @@ package com.reny.mvpvmdemo.presenter;
 
 import android.content.Intent;
 
+import com.github.markzhai.recyclerview.BaseViewAdapter;
+import com.github.markzhai.recyclerview.BindingViewHolder;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.api.GankApiService;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
@@ -16,7 +18,6 @@ import com.reny.mvpvmlib.base.IRBaseView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -25,7 +26,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by admin on 2017/6/6.
  */
 
-public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> {
+public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> implements BaseViewAdapter.Presenter{
 
     private String category = GankApiService.category_a;
     private int count = ResUtils.getInteger(R.integer.load_count);
@@ -39,7 +40,7 @@ public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> {
 
     @Override
     public void onCreate() {
-        getViewModel().adapter.setItemEventHandler(this);
+        getViewModel().adapter.setPresenter(this);
         loadData(true);
     }
 
@@ -66,17 +67,17 @@ public class FAPresenter extends MyBasePresenter<IRBaseView, FAViewModel> {
         );
     }
 
-    public void onClickItem(BGABindingViewHolder holder, GankData.ResultsBean model) {
+    public void onClickItem(BindingViewHolder holder, GankData.ResultsBean model) {
         Intent intent = new Intent(context, ImagesActivity.class);
         if(null == imgUrls) {
             imgUrls = new ArrayList<>(count);
         }
         imgUrls.clear();
-        for (GankData.ResultsBean bean : getViewModel().adapter.getData()) {
+        for (GankData.ResultsBean bean : getViewModel().adapter.getDatas()) {
             imgUrls.add(bean.getUrl());
         }
 
-        int curPos = holder.getAdapterPositionWrapper() - 1;
+        int curPos = holder.getAdapterPosition();
 
         intent.putExtra(ImgsInfo.KEY, new ImgsInfo(imgUrls, curPos < 0 ? 0 : curPos));
         context.startActivity(intent);

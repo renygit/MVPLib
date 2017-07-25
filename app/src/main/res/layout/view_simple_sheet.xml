@@ -1,30 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#aaffffff"
-    android:clickable="true"
-    android:orientation="vertical">
+<layout>
 
-    <View
-        android:id="@+id/widLine"
-        android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:background="#33000000"
-        android:visibility="gone" />
+    <data>
 
-    <TextView
-        android:id="@+id/tv_txt"
+        <import type="android.view.View" />
+
+        <variable
+            name="holder"
+            type="com.github.markzhai.recyclerview.BindingViewHolder" />
+
+        <variable
+            name="item"
+            type="String" />
+
+        <variable
+            name="presenter"
+            type="com.reny.mvpvmdemo.ui.activity.ImagesActivity.DraweePagerAdapter" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:maxLines="1"
-        android:paddingBottom="15dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="15dp"
-        android:textColor="@color/text_color"
-        android:textSize="15sp" />
-</LinearLayout>
+        android:background="#aaffffff"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/widLine"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#33000000"
+            android:visibility="@{item.equals(`取消`) ? View.VISIBLE : View.GONE}" />
+
+        <TextView
+            android:id="@+id/tv_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingBottom="15dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="15dp"
+            android:text="@{item}"
+            android:textColor="@color/text_color"
+            android:textSize="15sp"
+            android:onClick="@{() -> presenter.onClickItem(holder)}"/>
+    </LinearLayout>
+</layout>

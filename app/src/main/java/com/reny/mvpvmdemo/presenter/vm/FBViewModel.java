@@ -1,12 +1,12 @@
 package com.reny.mvpvmdemo.presenter.vm;
 
+import com.github.markzhai.recyclerview.SingleTypeAdapter;
+import com.reny.mvpvmdemo.MyApplication;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBaseViewModel;
-import com.reny.mvpvmdemo.databinding.ItemFragmentBBinding;
 import com.reny.mvpvmdemo.entity.model.HotMovieData;
 import com.reny.mvpvmdemo.utils.CommonUtils;
-
-import cn.bingoogolapple.androidcommon.adapter.BGABindingRecyclerViewAdapter;
+import com.reny.mvpvmlib.utils.LogUtils;
 
 /**
  * Created by reny on 2017/1/4.
@@ -14,17 +14,18 @@ import cn.bingoogolapple.androidcommon.adapter.BGABindingRecyclerViewAdapter;
 
 public class FBViewModel extends MyBaseViewModel {
 
-    public BGABindingRecyclerViewAdapter<HotMovieData.SubjectsBean, ItemFragmentBBinding> adapter = new BGABindingRecyclerViewAdapter<>(R.layout.item_fragment_b);
-
+    public SingleTypeAdapter<HotMovieData.SubjectsBean> adapter = new SingleTypeAdapter<>(MyApplication.getContext(), R.layout.item_fragment_b);
 
     public void setData(HotMovieData data, boolean isRefresh) {
-        setDataState(CommonUtils.isEmpty(data.getSubjects()));
-        if(isRefresh){
-            adapter.clear();
-            adapter.addNewData(data.getSubjects());
-        }else {
-            adapter.addMoreData(data.getSubjects());
+        boolean isEmpty = CommonUtils.isEmpty(data.getSubjects());
+        if(!isEmpty){
+            if(isRefresh){
+                adapter.set(data.getSubjects());
+            }else {
+                adapter.addAll(data.getSubjects());
+            }
         }
+        setDataState(isEmpty);
     }
 
 }

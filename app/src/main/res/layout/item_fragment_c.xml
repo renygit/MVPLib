@@ -5,15 +5,11 @@
     <data>
 
         <variable
-            name="viewHolder"
-            type="cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder" />
-
-        <variable
-            name="model"
+            name="item"
             type="com.reny.mvpvmdemo.entity.model.GankData.ResultsBean" />
 
         <variable
-            name="itemEventHandler"
+            name="presenter"
             type="com.reny.mvpvmdemo.presenter.FCPresenter" />
     </data>
 
@@ -26,8 +22,8 @@
         android:clickable="true"
         android:descendantFocusability="blocksDescendants"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="5dp"
-        app:onNoDoubleClick="@{() -> itemEventHandler.onClickItem(viewHolder, model)}">
+        android:onClick="@{() -> presenter.onClickItem(item)}"
+        app:cardCornerRadius="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text='@{model.desc}'
+                android:text='@{item.desc}'
                 android:textColor="@color/text_color" />
 
             <View
@@ -51,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_margin="5dp"
-                android:text='@{model.publishedAt.substring(0, 10)}'
+                android:text='@{item.publishedAt.substring(0, 10)}'
                 android:textColor="@color/text_gray_color"
                 android:textSize="12sp" />
 

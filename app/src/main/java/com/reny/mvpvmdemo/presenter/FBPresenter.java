@@ -2,6 +2,7 @@ package com.reny.mvpvmdemo.presenter;
 
 import android.content.Intent;
 
+import com.github.markzhai.recyclerview.BaseViewAdapter;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.core.ServiceHelper;
 import com.reny.mvpvmdemo.entity.model.HotMovieData;
@@ -9,7 +10,6 @@ import com.reny.mvpvmdemo.presenter.vm.FBViewModel;
 import com.reny.mvpvmdemo.ui.activity.WebActivity;
 import com.reny.mvpvmlib.base.IRBaseView;
 
-import cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -18,7 +18,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by reny on 2017/1/4.
  */
 
-public class FBPresenter extends MyBasePresenter<IRBaseView, FBViewModel> {
+public class FBPresenter extends MyBasePresenter<IRBaseView, FBViewModel> implements BaseViewAdapter.Presenter{
 
     public FBPresenter(IRBaseView view, FBViewModel viewModel) {
         super(view, viewModel);
@@ -26,7 +26,7 @@ public class FBPresenter extends MyBasePresenter<IRBaseView, FBViewModel> {
 
     @Override
     public void onCreate() {
-        getViewModel().adapter.setItemEventHandler(this);
+        getViewModel().adapter.setPresenter(this);
         loadData(true);
     }
 
@@ -53,14 +53,14 @@ public class FBPresenter extends MyBasePresenter<IRBaseView, FBViewModel> {
     }
 
     //列表Item点击 与xml绑定
-    public void onClickItem(BGABindingViewHolder holder, HotMovieData.SubjectsBean model) {
+    public void onClickItem(HotMovieData.SubjectsBean model) {
         Intent intent = new Intent(context, WebActivity.class);
         intent.putExtra("url", model.getAlt());
         context.startActivity(intent);
     }
 
 
-    public static String getDirectors(HotMovieData.SubjectsBean model){
+    public String getDirectors(HotMovieData.SubjectsBean model){
         if(null == model)return null;
         String directors = "导演：";
         for (int i = 0; i < model.getDirectors().size(); i++) {
@@ -70,7 +70,7 @@ public class FBPresenter extends MyBasePresenter<IRBaseView, FBViewModel> {
         return directors;
     }
 
-    public static String getCasts(HotMovieData.SubjectsBean model){
+    public String getCasts(HotMovieData.SubjectsBean model){
         if(null == model)return null;
         String casts = "主演：";
         for (int i = 0; i < model.getCasts().size(); i++) {
@@ -80,7 +80,7 @@ public class FBPresenter extends MyBasePresenter<IRBaseView, FBViewModel> {
         return casts;
     }
 
-    public static String getGenres(HotMovieData.SubjectsBean model){
+    public String getGenres(HotMovieData.SubjectsBean model){
         if(null == model)return null;
         String genres = "类型：";
         for (int i = 0; i < model.getGenres().size(); i++) {

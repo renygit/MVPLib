@@ -1,25 +1,48 @@
 package com.reny.mvpvmdemo.utils;
 
 import android.databinding.BindingAdapter;
+import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.classic.common.MultipleStatusView;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.utils.img.ImageUtils;
-import com.renygit.recycleview.RRecyclerView;
-
-import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrFrameLayout;
-import in.srain.cube.views.ptr.header.MaterialHeader;
+import com.reny.mvpvmlib.utils.LogUtils;
+import com.renygit.multistateview.MultiStateView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 /**
  * Created by reny on 2017/1/5.
  */
 
 public class BindingEvent {
+
+    @BindingAdapter("status")
+    public static void setStatusHeight(final View view, Integer height){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            try {
+                //父类不是ViewGroup类型的会报错
+                ViewGroup.LayoutParams lp = view.getLayoutParams();
+                lp.height = ResUtils.getDimenPx(R.dimen.status_bar_height);
+
+                int resourceId = view.getContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+                if (resourceId > 0) {
+                    //根据资源ID获取响应的尺寸值
+                    lp.height = view.getContext().getResources().getDimensionPixelSize(resourceId);
+                }
+
+                view.setLayoutParams(lp);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @BindingAdapter("adapter")
     public static void setAdapter(final RecyclerView rv, RecyclerView.Adapter adapter){
@@ -31,105 +54,54 @@ public class BindingEvent {
     public static void setLayoutManager(final RecyclerView rv, RecyclerView.LayoutManager layoutManager){
         if(null == layoutManager)layoutManager = new LinearLayoutManager(rv.getContext());
         rv.setLayoutManager(layoutManager);
+        rv.setHasFixedSize(true);
     }
 
     @BindingAdapter("presenter")
-    public static void setLoadMore(final RRecyclerView rv, final MyBasePresenter presenter){
-        rv.setOnLoadMoreListener(new RRecyclerView.OnLoadMoreListener() {
+    public static void setRefreshPresenter(SmartRefreshLayout srl, final MyBasePresenter presenter){
+        srl.setEnableAutoLoadmore(true);//开启自动加载功能（非必须）
+        srl.setOnRefreshListener(new OnRefreshListener() {
             @Override
-            public void onLoadMore() {
-                presenter.requestData(false);
+            public void onRefresh(RefreshLayout refreshlayout) {
+                presenter.loadData(true);
             }
         });
-
-        rv.setOnRetryListener(new View.OnClickListener() {
+        srl.setOnLoadmoreListener(new OnLoadmoreListener() {
             @Override
-            public void onClick(View v) {
-                setLoadMoreLoading(rv, true);
-                presenter.requestData(false);
+            public void onLoadmore(RefreshLayout refreshlayout) {
+                presenter.loadData(false);
             }
         });
+        //触发自动刷新
+        //srl.autoRefresh();
     }
 
     @BindingAdapter("loading")
-    public static void setLoadMoreLoading(final RRecyclerView rv, boolean loading){
-        if(loading) rv.setLoading();
-        else rv.loadComplete();
+    public static void setRefreshLoading(final SmartRefreshLayout srl, boolean loading){
+        if(!loading){
+            srl.finishRefresh();
+            srl.finishLoadmore();
+        }
     }
 
     @BindingAdapter("noMore")
-    public static void setNoMore(final RRecyclerView rv, boolean noMore){
-        rv.setNoMore(noMore);
+    public static void setNoMore(final SmartRefreshLayout srl, boolean noMore){
+        srl.setLoadmoreFinished(noMore);//将不会再次触发加载更多事件
     }
 
-    @BindingAdapter("isError")
-    public static void setError(final RRecyclerView rv, boolean isError){
-        if(isError) {
-            rv.setError();
-        }
-    }
-
-    @BindingAdapter("loadMoreEnabled")
-    public static void setLoadMoreEnabled(final RRecyclerView rv, boolean enable){
-        rv.setLoadMoreEnabled(enable);
-    }
-
-
-    @BindingAdapter({"multiState", "presenter"})
-    public static void setMultiState(final MultipleStatusView view, final int stateViewType, final MyBasePresenter presenter){
-        switch (stateViewType){
-            case MultipleStatusView.STATUS_LOADING:
-                view.showLoading();
-                break;
-            case MultipleStatusView.STATUS_EMPTY:
-                view.showEmpty();
-                break;
-            case MultipleStatusView.STATUS_ERROR:
-                view.showError();
-                break;
-            case MultipleStatusView.STATUS_NO_NETWORK:
-                view.showNoNetwork();
-                break;
-            case MultipleStatusView.STATUS_CONTENT:
-                view.showContent();
-                break;
-        }
-        view.setOnRetryClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.requestData(true);
-            }
-        });
+    @BindingAdapter("stateType")
+    public static void setMultiStateType(final MultiStateView view, final int stateViewType){
+        view.showViewByStatus(stateViewType);
     }
 
     @BindingAdapter("presenter")
-    public static void setRefreshPresenter(PtrFrameLayout pfl, final MyBasePresenter presenter){
-        // header
-        final MaterialHeader header = new MaterialHeader(pfl.getContext());
-        int[] colors = ResUtils.getArrInt(R.array.refresh_colors);
-        header.setColorSchemeColors(colors);
-        header.setLayoutParams(new PtrFrameLayout.LayoutParams(-1, -2));
-        header.setPadding(0, CommonUtils.dp2px(15), 0, CommonUtils.dp2px(10));
-        header.setPtrFrameLayout(pfl);
-
-        pfl.setLoadingMinTime(1000);
-        pfl.setDurationToCloseHeader(1500);
-        pfl.setHeaderView(header);
-        pfl.addPtrUIHandler(header);
-
-        pfl.setPtrHandler(new PtrDefaultHandler() {
+    public static void setMultiPresenter(final MultiStateView view, final MyBasePresenter presenter){
+        view.setOnRetryListener(new MultiStateView.OnRetryListener() {
             @Override
-            public void onRefreshBegin(PtrFrameLayout frame) {
-                presenter.requestData(true);
+            public void onRetry() {
+                presenter.retry();
             }
         });
-    }
-
-    @BindingAdapter("loading")
-    public static void setRefreshLoading(final PtrFrameLayout pfl, boolean loading){
-        if(!loading){
-            pfl.refreshComplete();
-        }
     }
 
     @BindingAdapter("url")

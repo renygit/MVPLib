@@ -2,17 +2,17 @@ package com.reny.mvpvmdemo.presenter;
 
 import android.content.Intent;
 
+import com.github.markzhai.recyclerview.BaseViewAdapter;
 import com.reny.mvpvmdemo.R;
 import com.reny.mvpvmdemo.api.GankApiService;
 import com.reny.mvpvmdemo.core.MyBasePresenter;
 import com.reny.mvpvmdemo.core.ServiceHelper;
 import com.reny.mvpvmdemo.entity.model.GankData;
+import com.reny.mvpvmdemo.presenter.vm.FCViewModel;
 import com.reny.mvpvmdemo.ui.activity.WebActivity;
 import com.reny.mvpvmdemo.utils.ResUtils;
-import com.reny.mvpvmdemo.presenter.vm.FCViewModel;
 import com.reny.mvpvmlib.base.IRBaseView;
 
-import cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -21,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by reny on 2017/1/4.
  */
 
-public class FCPresenter extends MyBasePresenter<IRBaseView, FCViewModel> {
+public class FCPresenter extends MyBasePresenter<IRBaseView, FCViewModel> implements BaseViewAdapter.Presenter{
 
     private String category = GankApiService.category_b;
     private int count = ResUtils.getInteger(R.integer.load_count);
@@ -33,7 +33,7 @@ public class FCPresenter extends MyBasePresenter<IRBaseView, FCViewModel> {
 
     @Override
     public void onCreate() {
-        getViewModel().adapter.setItemEventHandler(this);
+        getViewModel().adapter.setPresenter(this);
         loadData(true);
     }
 
@@ -61,7 +61,7 @@ public class FCPresenter extends MyBasePresenter<IRBaseView, FCViewModel> {
     }
 
     //列表Item点击 与xml绑定
-    public void onClickItem(BGABindingViewHolder holder, GankData.ResultsBean model) {
+    public void onClickItem(GankData.ResultsBean model) {
         Intent intent = new Intent(context, WebActivity.class);
         intent.putExtra("url", model.getUrl());
         context.startActivity(intent);

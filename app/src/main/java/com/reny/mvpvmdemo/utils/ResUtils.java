@@ -44,4 +44,8 @@ public class ResUtils {
     public static float getDimen(@DimenRes int dimenId){
         return MyApplication.getContext().getResources().getDimension(dimenId);
     }
+
+    public static int getDimenPx(@DimenRes int dimenId){
+        return MyApplication.getContext().getResources().getDimensionPixelSize(dimenId);
+    }
 }

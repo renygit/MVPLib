@@ -3,20 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
-        <import type="com.reny.mvpvmdemo.presenter.FBPresenter" />
-
         <variable
-            name="viewHolder"
-            type="cn.bingoogolapple.androidcommon.adapter.BGABindingViewHolder" />
-
-        <variable
-            name="model"
+            name="item"
             type="com.reny.mvpvmdemo.entity.model.HotMovieData.SubjectsBean" />
 
         <variable
-            name="itemEventHandler"
-            type="FBPresenter" />
+            name="presenter"
+            type="com.reny.mvpvmdemo.presenter.FBPresenter" />
     </data>
 
 
@@ -32,7 +25,7 @@
         android:clickable="true"
         android:descendantFocusability="blocksDescendants"
         app:cardCornerRadius="2dp"
-        app:onNoDoubleClick="@{() -> itemEventHandler.onClickItem(viewHolder, model)}">
+        android:onClick="@{() -> presenter.onClickItem(item)}">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +40,7 @@
                 android:scaleType="centerCrop"
                 app:base="height"
                 app:height_ratio="10"
-                app:url="@{model.images.large}"
+                app:url="@{item.images.large}"
                 app:width_ratio="7" />
 
             <LinearLayout
@@ -69,7 +62,7 @@
                         android:ellipsize="end"
                         android:gravity="top"
                         android:maxLines="1"
-                        android:text='@{model.title}'
+                        android:text='@{item.title}'
                         android:textColor="@color/text_color"
                         android:textSize="16sp" />
 
@@ -79,7 +72,7 @@
                         android:ellipsize="end"
                         android:gravity="top"
                         android:maxLines="1"
-                        android:text='@{model.rating.average+""}'
+                        android:text='@{item.rating.average+""}'
                         android:textColor="@color/text_red_color"
                         android:textSize="16sp"
                         android:textStyle="italic" />
@@ -92,7 +85,7 @@
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:maxLines="1"
-                    android:text='@{FBPresenter.getDirectors(model)}'
+                    android:text='@{presenter.getDirectors(item)}'
                     android:textColor="@color/text_gray_color" />
 
                 <TextView
@@ -102,7 +95,7 @@
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:maxLines="1"
-                    android:text='@{FBPresenter.getCasts(model)}'
+                    android:text='@{presenter.getCasts(item)}'
                     android:textColor="@color/text_gray_color" />
 
                 <TextView
@@ -112,7 +105,7 @@
                     android:ellipsize="end"
                     android:gravity="bottom"
                     android:maxLines="1"
-                    android:text='@{FBPresenter.getGenres(model)}'
+                    android:text='@{presenter.getGenres(item)}'
                     android:textColor="@color/text_gray_color" />
 
             </LinearLayout>

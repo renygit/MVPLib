@@ -82,7 +82,7 @@ public abstract class MyBaseActivity<DB extends ViewDataBinding> extends RBaseAc
 
             setStatusBarColor(Color.TRANSPARENT);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 StatusBarCompat.translucentStatusBar(this, true);
             }
         }
