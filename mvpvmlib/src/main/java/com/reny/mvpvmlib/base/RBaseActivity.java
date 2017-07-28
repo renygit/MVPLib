@@ -22,8 +22,11 @@ public abstract class RBaseActivity<DB extends ViewDataBinding> extends AppCompa
         preOnCreate(savedInstanceState);//特殊需求 一般不用重写
         super.onCreate(savedInstanceState);
         //多个Presenter或不想继承本BaseActivity，重写以下两句关键代码即可
-        mActivityRegister = new ActivityRegister().initBinding(this, getLayoutId()).register(getPresenter());
+        mActivityRegister = new ActivityRegister().initBinding(this, getLayoutId());
+
         binding = (DB)mActivityRegister.getBinding();
+
+        mActivityRegister.register(getPresenter());
 
         init(savedInstanceState);
     }
