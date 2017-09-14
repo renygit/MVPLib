@@ -2,6 +2,8 @@ package com.reny.mvpvmlib.http;
 
 import android.support.annotation.Nullable;
 
+import com.google.gson.Gson;
+import com.reny.mvpvmlib.http.converter.GsonConverterFactory;
 import com.reny.mvpvmlib.utils.LogUtils;
 
 import java.lang.reflect.Field;
@@ -11,7 +13,6 @@ import java.util.Map;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by reny on 2017/1/5.
@@ -50,7 +51,7 @@ public abstract class BaseServiceFactory<S> {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(getOkHttpClient())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(getGson()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         return retrofit.create(serviceClass);
@@ -60,5 +61,10 @@ public abstract class BaseServiceFactory<S> {
 
     @Nullable
     protected abstract String getDefaultBaseUrl();
+
+    @Nullable
+    protected Gson getGson(){
+        return null;
+    }
 
 }

@@ -10,6 +10,8 @@ import com.orhanobut.logger.Logger;
 
 public class LogUtils {
 
+    public static boolean isPrintResponseData = false;
+
     //更多查看：https://github.com/orhanobut/logger
     public static void init(final boolean isDebug){
         /*FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()

@@ -44,9 +44,9 @@ dependencies {
     compile (rootProject.ext.corelib["retrofit"]){
         exclude module: 'okhttp'
     }
-    compile (rootProject.ext.corelib["retrofit-converter-gson"]){
+    /*compile (rootProject.ext.corelib["retrofit-converter-gson"]){
         exclude module: 'gson'
-    }
+    }*/
     compile (rootProject.ext.corelib["retrofit-adapter-rxjava"]){
         exclude module: 'rxjava'
     }
