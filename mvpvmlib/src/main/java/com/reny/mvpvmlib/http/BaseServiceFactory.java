@@ -2,7 +2,6 @@ package com.reny.mvpvmlib.http;
 
 import android.support.annotation.Nullable;
 
-import com.reny.mvpvmlib.http.converter.GsonConverterFactory;
 import com.reny.mvpvmlib.utils.LogUtils;
 
 import java.lang.reflect.Field;
@@ -12,6 +11,7 @@ import java.util.Map;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by reny on 2017/1/5.

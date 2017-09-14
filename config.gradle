@@ -29,6 +29,7 @@ ext {
 
             //network
             "retrofit"                 : "com.squareup.retrofit2:retrofit:2.2.0",
+            "retrofit-converter-gson"  : "com.squareup.retrofit2:converter-gson:2.2.0",
             "retrofit-adapter-rxjava"  : "com.squareup.retrofit2:adapter-rxjava2:2.2.0",
             "okhttp3"                  : "com.squareup.okhttp3:okhttp:3.8.0",
             "okio"                     : "com.squareup.okio:okio:1.10.0",

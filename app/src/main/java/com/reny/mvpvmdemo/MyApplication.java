@@ -38,8 +38,6 @@ public class MyApplication extends Application {
         ImageUtils.getInstance().init(new GlideLoadStrategy());
         LogUtils.init(BuildConfig.DEBUG);
         SkinManager.getInstance().init(this);
-        LogUtils.isPrintResponseData = BuildConfig.DEBUG;//是否打印网络返回的源数据
-        LogUtils.isPrintResponseData = false;
 
 
         //设置全局的多状态配置 局部支持xml设置 可以设置不同状态的图片提示
