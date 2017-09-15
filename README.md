@@ -8,7 +8,7 @@ maven { url "https://jitpack.io" }
 ```
 ```Java
 dependencies {
-	compile 'com.github.renygit:MVPLib:1.0.1'
+	compile 'com.github.renygit:MVPLib:@LatestVersion'
 }
 ```
   
